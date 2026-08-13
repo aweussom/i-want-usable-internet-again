@@ -215,6 +215,31 @@ endpoint. Ledger note, so this never goes quietly: cloud dev is fine for
 the *harness*; the shipped default stays local, because the privacy
 ledger is the product.
 
+## First consumer: Fuckfeed (i-want-my-facebook-back)
+
+The feed is where unverified claims actually reach a person, and Fuckfeed
+already solves the half torehund can't: extracting them (its `linkfix.js`
+digs the real URL out of headline-only posts — the oppgulp entry point).
+The integration contract is the TODONT scoping verbatim: the annotation is
+**lineage, never a verdict** — *"traces to a single NTB item, repeated
+14×, no primary document found"* rendered next to the post, judgment left
+with the reader. It also fits Fuckfeed's doctrine (uncertainty is shown
+and flagged, never silently judged) and leaves its one invariant untouched
+(tracing happens entirely off Facebook).
+
+- **Trace is a deliberate act**: a button next to Mute, not an auto-pass.
+  A feed pass has dozens of posts; a trace costs ~40 s and ~1.5¢.
+- **Later, selective auto-trace**: gated by a claim-shaped/news-flavored
+  triage (NPU-sized question) with results cached locally keyed by
+  canonical URL. Oppgulp recurs — the cache pays for itself the third
+  time the same claim arrives. (This is a *result* cache, not the page
+  cache the house preference warns about.)
+- **Invocation shape deliberately undecided** — localhost HTTP service,
+  CLI subprocess, or direct import all work. HTTP would make torehund a
+  shared service for the whole whining-series, which is the convenience
+  any other shape has to beat — but decide when Fuckfeed's side is real,
+  not before.
+
 ## Positioning
 
 - Don't compete with frontier assistants on synthesis quality (competing
