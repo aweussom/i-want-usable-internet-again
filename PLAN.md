@@ -282,6 +282,15 @@ Then 5 real questions side-by-side against Perplexity. If the local
 answer is competitive on even 3 of 5, the thesis holds and the loop is
 worth building properly.
 
+**Built 2026-08-13** (`sporhund.py`): pipeline works end-to-end in ~30 s
+(dev harness: gemma4:31b decompose, mistral-large-3:675b synthesis via
+Ollama Cloud). First real answer cited every claim, surfaced a price
+disagreement instead of averaging it, and stated its gaps. The
+borrowed-reader cross-check (gpt-5.6-luna, blind) landed on the first
+run: retrieval saw *no retail listings*, the reader knew *why* (OEM
+channel only) — disagreement as dig-here marker, working as designed.
+Still open: the 5-question Perplexity side-by-side (needs human judging).
+
 ## Second spike (does the corroborator earn its keep?)
 
 Cheap, and it decides whether the whole SearXNG half is worth building:
@@ -290,4 +299,24 @@ canonicalized URL overlap. If overlap is ~95%, the corroborator is telling
 us nothing Brave didn't already say, and the verifier idea dies here. If
 it's ~30%, the disagreement *is* the product. Measure before building the
 merge properly.
+
+**Measured 2026-08-13** (`spike2_overlap.py`, 30 stratified queries,
+local Docker instance): corroboration of Brave's top-10 was **tech 67% /
+academic 54% / news 27%**, with 17–25 SearXNG-only URLs per query.
+Nowhere near the 95% kill line — **the corroborator stays.** Notes:
+
+- SearXNG's own `brave` engine was dead for the whole run, which is
+  accidentally the *cleaner* measurement: the overlap counted is
+  Brave-vs-genuinely-independent engines (google-cse, duckduckgo,
+  mojeek, …) — exactly the ranking-independent consensus the merge
+  wants, with no self-corroboration inflating it.
+- News is the outlier in both directions — least corroboration, most
+  unique URLs — confirming both that news needs its own mode and that
+  it's where the provenance vector earns out. One news query
+  ("norges bank rentebeslutning") had **zero** overlap.
+- `unresponsive_engines` varied per query; the confidence annotation
+  should record which engines were alive, not just how many agreed.
+- Public searx.space instances were considered and rejected as the
+  corroborator: query privacy (a stranger holds the question), JSON off
+  by default, and someone else's uptime — self-hosting is the design.
 
