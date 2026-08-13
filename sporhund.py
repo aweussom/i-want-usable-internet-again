@@ -72,14 +72,21 @@ def llm_chat(base_url, api_key, model, messages, max_tokens=8192):
     return text
 
 
-def decompose(question, n, llm):
+def decompose(question, n, llm, locale=""):
     """Question -> n search queries. The model is a query compiler, nothing
     more; any parse failure falls back to searching the question verbatim."""
     prompt = (
         f"Compile {n} web search queries that together would answer the "
-        f"question below. Different angles, keyword-style, no operators.\n"
-        f"Question: {question}\n"
-        f'Reply with ONLY a JSON array of {n} strings.')
+        f"question below. Different angles, keyword-style, no operators.\n")
+    if locale:
+        # Round 1 of the Perplexity face-off taught this: every backend
+        # answered from US retail because every query was English. Local
+        # availability lives behind local-language queries.
+        prompt += (f"The asker is in country '{locale}'. If local "
+                   f"availability, prices, or news could matter, write at "
+                   f"least one query in that country's language.\n")
+    prompt += (f"Question: {question}\n"
+               f'Reply with ONLY a JSON array of {n} strings.')
     try:
         text = llm([{"role": "user", "content": prompt}], max_tokens=2000)
         start, end = text.find("["), text.rfind("]")
@@ -92,9 +99,12 @@ def decompose(question, n, llm):
     return [question]
 
 
-def brave_search(query, key, count):
+def brave_search(query, key, count, country=""):
+    params = {"q": query, "count": count}
+    if country:
+        params["country"] = country
     r = requests.get(
-        BRAVE_ENDPOINT, params={"q": query, "count": count},
+        BRAVE_ENDPOINT, params=params,
         headers={"X-Subscription-Token": key, "Accept": "application/json"},
         timeout=20)
     r.raise_for_status()
@@ -199,8 +209,11 @@ def main():
                             m, messages, max_tokens)
         return call
 
+    country = cfg["brave"].get("country", "").strip()
+
     t0 = time.perf_counter()
-    queries = decompose(args.question, args.queries, make_llm(decompose_model))
+    queries = decompose(args.question, args.queries, make_llm(decompose_model),
+                        locale=country)
     print(f"queries ({time.perf_counter()-t0:.1f}s):")
     for q in queries:
         print(f"  - {q}")
@@ -209,7 +222,7 @@ def main():
     per_query = []
     for q in queries:
         try:
-            per_query.append(brave_search(q, brave_key, args.per_query))
+            per_query.append(brave_search(q, brave_key, args.per_query, country))
         except Exception as e:
             print(f"  brave failed for {q!r}: {e}")
             per_query.append([])

@@ -6,6 +6,11 @@
 # brave.com/search/api — take the SEARCH plan, NOT Answers (see PLAN.md,
 # "Two traps"). Free tier: $5 credit/month ≈ 1,000 queries.
 api_key =
+# Two-letter country code (e.g. no). Biases results toward local retail/
+# news and tells the decompose step to write local-language queries when
+# availability or prices matter — US-only retrieval confidently missed
+# Norwegian resellers in the first face-off round.
+country =
 
 [ollama_cloud]
 # Dev harness only — the shipped default stays local (PLAN.md "Dev
