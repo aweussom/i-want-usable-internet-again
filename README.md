@@ -3,9 +3,11 @@
 The internet's answer machinery optimizes for whoever is paying to be
 found, so the rational reader ends up marking *everything* as
 spam/phishing — verification fatigue as a lifestyle. This repo is the
-repair attempt: **`sporhund.py`**, a bloodhound that runs the tedious
+repair attempt: **`torehund.py`**, a bloodhound that runs the tedious
 half of source criticism so your judgment gets a pre-traced lineage
-instead of a raw claim.
+instead of a raw claim. (The name is a triple: Tore Hund, the Viking who
+felled a saint-king; *Tore på sporet*, lineage tracing as a TV format;
+and the sporhund it actually is.)
 
 A local LLM (served by [NoLlama](https://github.com/aweussom/NoLlama))
 decomposes your question, sends it out through independent search

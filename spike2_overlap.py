@@ -14,7 +14,7 @@ import time
 
 import requests
 
-from sporhund import brave_search, canonicalize, cfg_key, load_keys
+from torehund import brave_search, canonicalize, cfg_key, load_keys
 
 STRATA = {
     "tech": [

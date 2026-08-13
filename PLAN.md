@@ -1,10 +1,12 @@
 # i-want-usable-internet-again — plan
 
 *Named 2026-08-13: the repo states the grievance, the tool inside is
-`sporhund.py` — the bloodhound that traces a claim back to its source.
-(Earlier working name: intheknow.com — domain taken, and "in the know"
-promised the wrong thing anyway. sporhund.no is taken too; urkilde.no had
-no A record if a domain is ever wanted.)*
+`torehund.py` — Tore Hund (felled a saint-king) × "Tore på sporet"
+(lineage tracing as a TV format) × sporhund (what it is). "Tore Hund på
+sporet" is the product-name front-runner if this ever ships; torehund.no
+is the domain to check at Norid. (Earlier working names: intheknow.com —
+taken, promised the wrong thing; sporhund.py — outpunned same day.
+sporhund.no taken; urkilde.no had no A record, kept as backup.)*
 
 ## Why
 
@@ -272,7 +274,8 @@ ledger's one real promise. Extraction stays local.
   wait* — but re-fetching the web on every follow-up has a real cost.
   Decide when it hurts, not before.
 - ~~Name/domain~~: settled 2026-08-13 — repo `i-want-usable-internet-again`,
-  tool `sporhund.py`. Domain deferred until something ships.
+  tool `torehund.py`; product name front-runner "Tore Hund på sporet"
+  (torehund.no unchecked). Domain purchase deferred until something ships.
 
 ## First spike (the 10-minute-honesty test)
 
@@ -282,7 +285,8 @@ Then 5 real questions side-by-side against Perplexity. If the local
 answer is competitive on even 3 of 5, the thesis holds and the loop is
 worth building properly.
 
-**Built 2026-08-13** (`sporhund.py`): pipeline works end-to-end in ~30 s
+**Built 2026-08-13** (`torehund.py`, né sporhund.py): pipeline works
+end-to-end in ~30 s
 (dev harness: gemma4:31b decompose, mistral-large-3:675b synthesis via
 Ollama Cloud). First real answer cited every claim, surfaced a price
 disagreement instead of averaging it, and stated its gaps. The

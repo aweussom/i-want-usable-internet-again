@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""sporhund.py — spike 1: one question end-to-end, no UI.
+"""torehund.py — spike 1: one question end-to-end, no UI.
+
+Named for the triple: Tore Hund (the Viking who felled a saint-king),
+"Tore på sporet" (lineage tracing as a TV format), and the sporhund —
+bloodhound — this program actually is.
 
 decompose (LLM, tiny prompt, JSON out) -> Brave search -> canonicalize +
 merge with provenance -> fetch + extract -> one synthesis pass with
@@ -8,8 +12,8 @@ citations -> answer AND the results list it came from.
 The loop lives here in python; the model gets one small question per step.
 Backends come from keys.ini (gitignored) — empty value = backend off.
 
-  python sporhund.py "your question"
-  python sporhund.py --model gpt-oss:120b --read 4 "your question"
+  python torehund.py "your question"
+  python torehund.py --model gpt-oss:120b --read 4 "your question"
 """
 import argparse
 import configparser
