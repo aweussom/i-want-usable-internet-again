@@ -81,10 +81,13 @@ def decompose(question, n, llm, locale=""):
     if locale:
         # Round 1 of the Perplexity face-off taught this: every backend
         # answered from US retail because every query was English. Local
-        # availability lives behind local-language queries.
+        # availability lives behind local-language queries — and behind
+        # site:.<tld>, the veteran manual fix for locale-blind ranking
+        # (the one operator exception to the no-operators rule).
         prompt += (f"The asker is in country '{locale}'. If local "
                    f"availability, prices, or news could matter, write at "
-                   f"least one query in that country's language.\n")
+                   f"least one query in that country's language, and you "
+                   f"may add site:.{locale} to that one query only.\n")
     prompt += (f"Question: {question}\n"
                f'Reply with ONLY a JSON array of {n} strings.')
     try:
