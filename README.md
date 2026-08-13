@@ -19,6 +19,12 @@ document at the end of the trail.
 It reports lineage, never truth verdicts. That distinction is
 load-bearing; see [TODONT.md](TODONT.md).
 
-Status: planning. Read [PLAN.md](PLAN.md) — the architecture, the cost
-arithmetic, and the two spikes that decide whether the thesis survives
-contact with reality.
+Status: spike phase — the pipeline works end-to-end and both make-or-break
+spikes passed. Read [PLAN.md](PLAN.md) for the architecture and the cost
+arithmetic, and [faceoff/SCORECARD.md](faceoff/SCORECARD.md) for an honest
+five-round loss to Perplexity that mapped the roadmap.
+
+License: **AGPL-3.0** — deliberately, not by habit. This tool's one promise
+is that nobody else holds your questions; the AGPL's network clause is that
+promise in license form. Run it, change it, keep your changes private — all
+free. Wrap it into a hosted service, and you owe the world your source.
