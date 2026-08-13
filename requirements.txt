@@ -1,0 +1,4 @@
+requests
+# Optional but much better page extraction; sporhund falls back to a crude
+# tag-stripper without it.
+trafilatura

@@ -9,10 +9,30 @@ api_key =
 
 [ollama_cloud]
 # Dev harness only — the shipped default stays local (PLAN.md "Dev
-# harness"). OpenAI-compatible endpoint; verify the URL against your
-# Ollama Cloud account page.
+# harness"). On a box running the Ollama daemon, http://localhost:11434/v1
+# works key-less (the daemon proxies cloud models) — but note NoLlama also
+# claims 11434 when running, so the direct URL is immune to port fights.
+# Avoid heavy thinking models: reasoning shares max_tokens and qwen3.5:397b
+# exhausts 8k tokens thinking before writing a word of answer.
 base_url = https://ollama.com/v1
 api_key =
+model = mistral-large-3:675b
+decompose_model = gemma4:31b
+
+# --- Borrowed readers (PLAN.md item 4) — fill in as they get wired up.
+# Sections may use `key =` or `api_key =`; empty = off.
+
+[openrouter]
+key =
+
+[deepseek]
+key =
+
+[openai]
+key =
+
+[anthropic]
+key =
 
 [nollama]
 # Local NoLlama server (OpenAI-compatible). No key — it's our own box.
