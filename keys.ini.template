@@ -1,0 +1,25 @@
+# keys.ini.template — the committed shape of keys.ini.
+# Setup: copy to keys.ini (gitignored) and fill in real values.
+# Read with python's configparser; empty value = that backend is off.
+
+[brave]
+# brave.com/search/api — take the SEARCH plan, NOT Answers (see PLAN.md,
+# "Two traps"). Free tier: $5 credit/month ≈ 1,000 queries.
+api_key =
+
+[ollama_cloud]
+# Dev harness only — the shipped default stays local (PLAN.md "Dev
+# harness"). OpenAI-compatible endpoint; verify the URL against your
+# Ollama Cloud account page.
+base_url = https://ollama.com/v1
+api_key =
+
+[nollama]
+# Local NoLlama server (OpenAI-compatible). No key — it's our own box.
+base_url = http://localhost:18000/v1
+
+[searxng]
+# Parallel corroborator — leave empty until an instance exists (second
+# spike decides whether it earns its keep). Remember search.formats must
+# include json or the API 403s (see PLAN.md).
+base_url =

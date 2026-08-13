@@ -1,0 +1,6 @@
+# Real keys live here; keys.ini.template is the committed shape.
+keys.ini
+
+__pycache__/
+venv/
+*.pyc
