@@ -240,6 +240,26 @@ and flagged, never silently judged) and leaves its one invariant untouched
   any other shape has to beat — but decide when Fuckfeed's side is real,
   not before.
 
+### Second consumer: Nyhetene på nordnorsk
+
+The Darwin-Awards digest (i-want-nyhetene-pa-nordnorsk) needs three
+things that are all news-mode machinery:
+
+- **Same-event collapse.** Its "Ideer videre" asks for embedding+HDBSCAN
+  to group the same event across sources — that *is* the near-duplicate
+  clustering + independent-origin backtrack. A viral dumb-things story is
+  oppgulp in comedy form; "6 saker eller 1 sak syndikert 6 ganger?" is
+  the founding question, shared rather than rebuilt.
+- **Verification before mockery.** Reading a fabricated/satire story
+  aloud as real news is the digest's worst failure mode — and the screen
+  is a *lineage* question, not a truth question: no independent origin +
+  no primary document → not manus material. Provenance-not-veracity
+  holds even for comedy.
+- **The primary-document terminus as material.** The politilogg or court
+  record behind a Darwin story is reliably funnier and more accurate
+  than the aggregator's fourth-hand retelling. The backtrack upgrades
+  the joke, not just the sourcing.
+
 ## Positioning
 
 - Don't compete with frontier assistants on synthesis quality (competing
