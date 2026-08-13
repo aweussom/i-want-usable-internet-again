@@ -1,0 +1,16 @@
+# SearXNG config for the sporhund corroborator instance.
+# Mounted into the container at /etc/searxng/settings.yml.
+use_default_settings: true
+
+server:
+  # Local single-user instance behind no proxy; replace if ever exposed.
+  secret_key: "sporhund-local-only-not-a-secret"
+  limiter: false
+
+search:
+  # THE gotcha (PLAN.md): json is not in the default formats list, and a
+  # format=json request against a default instance is a 403, not an error
+  # you can diagnose from the response.
+  formats:
+    - html
+    - json

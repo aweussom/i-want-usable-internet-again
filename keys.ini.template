@@ -39,7 +39,8 @@ key =
 base_url = http://localhost:18000/v1
 
 [searxng]
-# Parallel corroborator — leave empty until an instance exists (second
-# spike decides whether it earns its keep). Remember search.formats must
-# include json or the API 403s (see PLAN.md).
-base_url =
+# Parallel corroborator. Self-hosted, $0 marginal:
+#   docker run -d --name searxng --restart unless-stopped -p 8888:8080 \
+#     -v <repo>/searxng:/etc/searxng searxng/searxng
+# The mounted settings.yml enables format=json (403 without it).
+base_url = http://localhost:8888

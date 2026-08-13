@@ -54,10 +54,14 @@ def llm_chat(base_url, api_key, model, messages, max_tokens=8192):
     headers = {"Content-Type": "application/json"}
     if api_key:
         headers["Authorization"] = f"Bearer {api_key}"
-    r = requests.post(
-        f"{base_url.rstrip('/')}/chat/completions",
-        json={"model": model, "messages": messages, "max_tokens": max_tokens},
-        headers=headers, timeout=300)
+    body = {"model": model, "messages": messages, "max_tokens": max_tokens}
+    r = requests.post(f"{base_url.rstrip('/')}/chat/completions",
+                      json=body, headers=headers, timeout=300)
+    if r.status_code == 400 and "max_completion_tokens" in r.text:
+        # OpenAI reasoning-family models renamed the knob.
+        body["max_completion_tokens"] = body.pop("max_tokens")
+        r = requests.post(f"{base_url.rstrip('/')}/chat/completions",
+                          json=body, headers=headers, timeout=300)
     r.raise_for_status()
     choice = r.json()["choices"][0]
     text = THINK_RE.sub("", choice["message"].get("content") or "").strip()
@@ -146,6 +150,26 @@ def synthesize(question, sources, llm):
     return llm([{"role": "user", "content": prompt}])
 
 
+def crosscheck(question, our_answer, reader_llm, judge_llm):
+    """Borrowed reader (PLAN.md item 4): an independent model answers the
+    same question BLIND — it never sees our sources or answer, so its
+    agreement is corroboration and its disagreement is a dig-here marker,
+    never ground truth."""
+    reader_answer = reader_llm([{"role": "user", "content": question}])
+    prompt = (
+        "Two independent answers to the same question. A is built from live "
+        "web retrieval with citations; B is a separate model answering from "
+        "its own knowledge. Compare them and report, tersely:\n"
+        "1. AGREE: claims both make.\n"
+        "2. DISAGREE: claims where they conflict (quote both sides).\n"
+        "3. B-ONLY: things B adds that A lacks (possibly stale — B has a "
+        "training cutoff; A searched today).\n"
+        "4. DIG: what to search next to settle the disagreements.\n\n"
+        f"Question: {question}\n\n--- A (retrieval) ---\n{our_answer}\n\n"
+        f"--- B (reader) ---\n{reader_answer}")
+    return judge_llm([{"role": "user", "content": prompt}])
+
+
 def main():
     ap = argparse.ArgumentParser(description="spike 1: one question end-to-end")
     ap.add_argument("question")
@@ -154,6 +178,8 @@ def main():
     ap.add_argument("--read", type=int, default=6, help="pages to fetch+read")
     ap.add_argument("--page-chars", type=int, default=5000)
     ap.add_argument("--model", default=None, help="synthesis model override")
+    ap.add_argument("--no-crosscheck", action="store_true",
+                    help="skip the borrowed-reader comparison")
     args = ap.parse_args()
 
     cfg = load_keys()
@@ -221,6 +247,23 @@ def main():
     for i, s in enumerate(sources, start=1):
         prov = ", ".join(f"q{qi+1}#r{rank}" for qi, rank in s["found_by"])
         print(f"  [{i}] {s['title']}\n      {s['url']}\n      found by: {prov}")
+
+    reader_key = cfg_key(cfg, "openai")
+    if reader_key and not args.no_crosscheck:
+        t4 = time.perf_counter()
+        reader_model = cfg["openai"].get("model", "gpt-5.6-luna")
+        reader_url = cfg["openai"].get("base_url", "https://api.openai.com/v1")
+        def reader(messages, max_tokens=8192):
+            return llm_chat(reader_url, reader_key, reader_model,
+                            messages, max_tokens)
+        try:
+            report = crosscheck(args.question, answer, reader, make_llm(model))
+            print(f"\nCross-check vs {reader_model} "
+                  f"({time.perf_counter()-t4:.1f}s) — disagreement is a "
+                  f"dig-here marker, not a verdict:")
+            print(report)
+        except Exception as e:
+            print(f"\ncross-check failed (continuing without): {e}")
     print(f"\ntotal {time.perf_counter()-t0:.1f}s")
 
 
