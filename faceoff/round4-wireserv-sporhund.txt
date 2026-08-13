@@ -1,0 +1,65 @@
+queries (1.8s):
+  - wire services news homogenization evidence
+  - impact of news agencies on media diversity research
+  - nytt ap reuters nyhetsformidling homogenisering site:.no
+search: 10 hits -> 10 unique (3.4s)
+  fetch failed https://www.researchgate.net/publication/262723542_Is_the_Internet_Homogenizing_or_Diversifying_the_News_External_Pluralism_in_the_US_Danish_and_French_Press: 403 Client Error: Forbidden for url: https://www.researchgate.net/publication/262723542_Is_the_Internet_Homogenizing_or_Diversifying_the_News_External_Pluralism_in_the_US_Danish_and_French_Press
+  fetch failed https://www.weforum.org/stories/2021/12/diversity-in-news-media/: 403 Client Error: Forbidden for url: https://www.weforum.org/stories/2021/12/diversity-in-news-media/
+  fetch failed https://www.tandfonline.com/doi/full/10.1080/10584600701313025: 403 Client Error: Forbidden for url: https://www.tandfonline.com/doi/full/10.1080/10584600701313025
+  fetch failed https://www.researchgate.net/publication/371139152_How_does_a_national_multilingual_news_agency_contribute_to_news_diversity_A_mixed-methods_case_study: 403 Client Error: Forbidden for url: https://www.researchgate.net/publication/371139152_How_does_a_national_multilingual_news_agency_contribute_to_news_diversity_A_mixed-methods_case_study
+  fetch failed https://academic.oup.com/joc/article/75/3/195/7978978: 403 Client Error: Forbidden for url: https://academic.oup.com/joc/article/75/3/195/7978978
+  fetch failed https://www.tandfonline.com/doi/full/10.1080/17512786.2024.2361366: 403 Client Error: Forbidden for url: https://www.tandfonline.com/doi/full/10.1080/17512786.2024.2361366
+read 3 pages (10.5s)
+synthesis: mistral-large-3:675b (3.4s)
+
+========================================================================
+The evidence that wire services homogenize news coverage comes from **Source [3]**, which explicitly states:
+
+- Wire services "can lead to a homogenization of news content, as many media outlets end up publishing the same stories from the same sources. This can limit diversity in news coverage and reduce the variety of perspectives available to readers or viewers" [3].
+
+No other sources directly address wire service homogenization, leaving a gap in whether this effect is empirically measured or disputed. Sources [1] and [2] focus on diversity in newsrooms but do not link it to wire services.
+========================================================================
+
+Sources (what was actually retrieved and read):
+  [1] Chapter 2: Diversification of News Media Management and Workforce
+      https://www.usccr.gov/files/pubs/sac/mn1203/ch2.htm
+      found by: q2#r1
+  [2] U.S. journalists say newsrooms lack racial diversity, mixed views on other diversity issues | Pew Research Center
+      https://www.pewresearch.org/journalism/2022/06/14/journalists-give-industry-mixed-reviews-on-newsroom-diversity-lowest-marks-in-racial-and-ethnic-diversity/
+      found by: q2#r2
+  [3] Wire Service - Definition & Detailed Explanation - Journalism Glossary Terms - SimplyGlobalMedia.com
+      https://simplyglobalmedia.com/journalism-glossary/wire-service/
+      found by: q1#r3
+
+Cross-check vs gpt-5.6-luna (23.4s) — disagreement is a dig-here marker, not a verdict:
+### **Comparison of A and B**
+
+#### **1. AGREE**
+- Wire services lead to **homogenization of news coverage** by distributing identical or near-identical content across outlets.
+- This effect is **strongest in resource-constrained media** (smaller outlets, breaking news, foreign coverage).
+- Homogenization involves **shared story selection, framing, and wording**.
+
+#### **2. DISAGREE**
+- **A (retrieval):**
+  > *"Wire services 'can lead to a homogenization of news content, as many media outlets end up publishing the same stories from the same sources. This can limit diversity in news coverage and reduce the variety of perspectives available to readers or viewers.'"*
+  *(Single-source claim, no empirical depth.)*
+
+- **B (knowledge):**
+  > *"There is substantial evidence... from textual overlap, newsroom production research, intermedia dependence, and digital publication systems."*
+  *(Provides multiple research-backed mechanisms, including content analysis, ethnographic studies, and computational text analysis.)*
+
+#### **3. B-ONLY (Additions from B)**
+- **Empirical methods** (content analysis, newsroom ethnography, computational text analysis).
+- **Mechanisms** (intermedia dependence, pack journalism, digital copying visibility).
+- **Qualifications** (wires can *also* increase diversity; homogenization is partial, not total).
+- **Economic incentives** (cost reduction, speed, legal protection).
+- **Role of official sources** (shared dependence on governments/corporations, not just wires).
+
+#### **4. DIG (Next Searches to Settle Disagreements)**
+- **Empirical studies on textual overlap** (e.g., computational analysis of wire-derived stories in digital archives).
+- **Newsroom ethnographies** (how journalists use wire copy in practice).
+- **Comparative studies** (coverage differences between wire-dependent vs. independent outlets).
+- **Longitudinal data** (has homogenization increased with digital news production?).
+- **Counter-evidence** (cases where wires *increase* diversity, e.g., in localizing international news).
+
+total 42.4s

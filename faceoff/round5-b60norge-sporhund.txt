@@ -1,0 +1,65 @@
+queries (1.8s):
+  - Intel Arc Pro B60 price Norway
+  - Intel Arc Pro B60 pris lager site:.no
+  - Intel Arc Pro B60 availability Norway stores
+search: 10 hits -> 8 unique (3.4s)
+  fetch failed https://community.intel.com/t5/Intel-Arc-Discrete-Graphics/Will-the-ARC-Pro-B60-be-sold-by-itself-to-consumers-or-only-in/m-p/1692189: 403 Client Error: Forbidden for url: https://community.intel.com/t5/Intel-Arc-Discrete-Graphics/Will-the-ARC-Pro-B60-be-sold-by-itself-to-consumers-or-only-in/m-p/1692189
+read 4 pages (7.1s)
+synthesis: mistral-large-3:675b (7.1s)
+
+========================================================================
+**Pris og tilgjengelighet i Norge:**
+- **Pris:** Intel Arc Pro B60 koster **€769–€1025** i Europa (tilsvarende **~8 500–11 400 NOK** ved dagens valutakurs) [2]. En kilde oppgir priser fra **$644–$713** (ASRock-modell), men dette gjelder ikke nødvendigvis det norske markedet [3].
+- **På lager:** Ingen av kildene bekrefter om kortet er på lager i Norge. Europeisk lansering er planlagt **midten til slutten av november 2024** [2], men ingen norske butikker er nevnt. **Gap:** Ingen opplysninger om norske forhandlere eller lagerstatus.
+
+**Merknad:**
+- Kildene [1] og [2] er motstridende om prisnivået (henholdsvis $599 vs. €769+), men [2] er nyere og spesifikt for Europa. [3] viser amerikanske priser, som ikke direkte oversettes til Norge.
+========================================================================
+
+Sources (what was actually retrieved and read):
+  [1] Intel Arc Pro B60 24GB professional GPU listed at $599, in stock and shipping - VideoCardz.com
+      https://videocardz.com/newz/intel-arc-pro-b60-24gb-professional-gpu-listed-at-599-in-stock-and-shipping
+      found by: q1#r2, q3#r5
+  [2] Intel Arc Pro B60 24GB workstation GPU to launch in Europe mid to late November, starting at €769 - VideoCardz.com
+      https://videocardz.com/newz/intel-arc-pro-b60-24gb-workstation-gpu-to-launch-in-europe-mid-to-late-november-starting-at-e769
+      found by: q1#r1
+  [3] ASRock Intel Arc Pro B60 Creator - Prices, specifications and information | GPUs
+      https://www.gpus.net/gpus/intel_arc_pro_b60/asrock_intel_arc_pro_b60_creator
+      found by: q1#r4
+  [4] PassMark - Intel Arc Pro B60 - Price performance comparison
+      https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Arc+Pro+B60&id=7155
+      found by: q1#r5
+
+Cross-check vs gpt-5.6-luna (22.5s) — disagreement is a dig-here marker, not a verdict:
+### **Comparison: A (Retrieval) vs. B (Model Knowledge)**
+
+#### **1. AGREE**
+- **Price range**: Both estimate the **Intel Arc Pro B60** to cost **~8,000–11,400 NOK** in Norway (A: €769–€1,025 / ~8,500–11,400 NOK; B: ~8,000–9,500 NOK).
+- **Limited availability**: Neither confirms stock in Norway; both suggest it may not be widely available.
+- **Niche product**: Both note it’s a **workstation/enterprise GPU** with limited retail distribution.
+
+#### **2. DISAGREE**
+- **Price discrepancy**:
+  - **A**: *"€769–€1,025 (~8,500–11,400 NOK)"* [2] (newer, Europe-focused).
+  - **B**: *"599 USD (~7,800–8,500 NOK before taxes/fees)"* (older, US-centric).
+- **Likely reason**: A’s source [2] is newer (Nov 2024) and accounts for European pricing, while B’s estimate is based on pre-launch MSRP (likely stale).
+
+#### **3. B-ONLY (Additions from B)**
+- **Specific Norwegian retailers to check**: Prisjakt, Prisguiden, Proshop, Dustin, Komplett.
+- **Model clarification**: Warns against confusing **Arc Pro B60 (24GB)** with **Arc B580**.
+- **EU import advice**: Estimates **7,800–9,000 NOK** delivered from EU stores (including VAT/shipping).
+- **Brand names**: Suggests searching for **Sparkle** or **ASRock** variants.
+
+#### **4. DIG (Next Steps to Resolve Disagreements)**
+- **Search for live Norwegian/EU listings**:
+  - Check **Prisjakt.no** or **Prisguiden.no** for current prices/stock.
+  - Search **Proshop.no**, **Dustin.no**, **Komplett.no**, or **Elkjøp.no** for "Intel Arc Pro B60" or "Sparkle/ASRock Arc Pro B60."
+- **Verify European launch status**:
+  - Confirm if the **mid-to-late November 2024** launch (A’s source) has occurred.
+  - Check Intel’s official **Norwegian/EU retailer list** ([Intel’s partner page](https://www.intel.com/content/www/us/en/partner/where-to-buy.html)).
+- **Compare with US prices**:
+  - If A’s €769+ is accurate, Norway’s price may include **higher VAT (25%) + import fees** vs. B’s USD-based estimate.
+- **Look for reviews/preorders**:
+  - Search **Norwegian tech forums** (e.g., **Hardware.no**) or **Reddit (r/norge)** for user reports on availability.
+
+total 42.0s

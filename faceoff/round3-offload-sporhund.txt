@@ -1,0 +1,65 @@
+queries (3.0s):
+  - OpenVINO MoE expert offloading to disk
+  - OpenVINO MoE supported GPU hardware
+  - OpenVINO MoE offloading diskstøtte GPU site:.no
+search: 10 hits -> 10 unique (3.5s)
+  fetch failed https://stackoverflow.com/questions/68982859/can-openvino-support-and-use-nvidia-gpu: 403 Client Error: Forbidden for url: https://stackoverflow.com/questions/68982859/can-openvino-support-and-use-nvidia-gpu
+  fetch failed https://apxml.com/courses/mixture-of-experts-advanced-implementation/chapter-4-efficient-moe-inference/expert-offloading: 403 Client Error: Forbidden for url: https://apxml.com/courses/mixture-of-experts-advanced-implementation/chapter-4-efficient-moe-inference/expert-offloading
+read 6 pages (17.0s)
+synthesis: mistral-large-3:675b (5.6s)
+
+========================================================================
+**Answer:**
+Yes, OpenVINO **2026.3** supports MoE (Mixture of Experts) expert offloading to disk, enabling models like Qwen3-30B-A3B to run on systems with **16 GB of memory** [1][3][4]. This feature is **GPU-specific** and works on **Intel GPUs**, including:
+- Intel® Arc™ GPU Series
+- Intel® Data Center GPU Flex Series
+- Intel® Data Center GPU Max Series
+- Intel® Iris® Xe Graphics (and other integrated Intel GPUs listed in [5]).
+
+No explicit GPU model exclusions are stated, but the feature is **not supported on NPUs or CPUs** [1][2]. Sources do not specify whether offloading works on non-Intel GPUs (e.g., NVIDIA/AMD), creating a **gap in documentation**.
+========================================================================
+
+Sources (what was actually retrieved and read):
+  [1] OpenVINO Release Notes — OpenVINO™ documentation
+      https://docs.openvino.ai/2026/about-openvino/release-notes-openvino.html
+      found by: q1#r1
+  [2] Supported Devices — OpenVINO™ documentation
+      https://docs.openvino.ai/2024/about-openvino/compatibility-and-support/supported-devices.html
+      found by: q2#r1
+  [3] Intel Releases OpenVINO 2026.3 with Expanded Generative AI and Model Support - Edge AI and Vision Alliance
+      https://www.edge-ai-vision.com/2026/08/intel-releases-openvino-2026-3-with-expanded-generative-ai-and-model-support/
+      found by: q1#r2
+  [4] Releases · openvinotoolkit/openvino
+      https://github.com/openvinotoolkit/openvino/releases
+      found by: q1#r3
+  [5] System Requirements — OpenVINO™ documentation
+      https://docs.openvino.ai/systemrequirements
+      found by: q2#r3
+  [6] System Hardware Requirements for OpenVINO in 2025
+      https://www.proxpc.com/blogs/system-hardware-requirements-for-openvino-in-2025
+      found by: q2#r4
+
+Cross-check vs gpt-5.6-luna (32.0s) — disagreement is a dig-here marker, not a verdict:
+### **Comparison Report**
+
+#### **1. AGREE**
+- OpenVINO supports **MoE expert offloading** (though mechanics differ).
+- Works **only on Intel GPUs** (Arc, Data Center Flex/Max, Iris Xe).
+- **Not supported on NPUs/CPUs** (or non-Intel GPUs).
+
+#### **2. DISAGREE**
+- **A:** *"Supports MoE expert offloading **to disk** [...] enabling models like Qwen3-30B-A3B to run on **16 GB of memory**."* ([1][3][4])
+- **B:** *"Inactive experts can remain outside GPU memory [...] but **disk is not used as a practical runtime cache** for every expert swap."*
+
+#### **3. B-ONLY (Stale/Additional Context)**
+- Clarifies that offloading is **CPU/host-memory-based**, not direct disk caching.
+- Notes **memory-mapped storage** (not runtime disk swapping).
+- Mentions **driver/plugin version dependencies** (A assumes latest).
+
+#### **4. DIG (Next Searches)**
+- **Official OpenVINO 2026.3 release notes** (A’s source) vs. **GPU plugin docs** (B’s implied source).
+- **Benchmark tests** (e.g., Qwen3-30B-A3B on 16GB GPU) to verify disk vs. host-memory usage.
+- **Intel’s MoE whitepaper** (if any) on offloading mechanics.
+- **Community forums** (e.g., GitHub issues) for real-world reports on disk offloading.
+
+total 61.1s

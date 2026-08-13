@@ -1,0 +1,110 @@
+queries (3.4s):
+  - Melkøya elektrifisering status fremdrift
+  - Hammerfest energi elektrifisering Melkøya nyheter
+  - Melkøya power from shore project updates site:.no
+search: 10 hits -> 10 unique (3.5s)
+read 6 pages (11.5s)
+synthesis: mistral-large-3:675b (17.2s)
+
+========================================================================
+Her er en oppsummering basert på de gitte kildene:
+
+**Status for elektrifiseringen av Melkøya:**
+- Stortinget har **ikke stanset** elektrifiseringen, men vedtatt at regjeringen skal sikre framdrift for prosjekter som kan gi tilstrekkelig kraft til Melkøya, med mål om drift innen 2030. Dette kan inkludere gasskraft med CCS, flytende havvind eller andre løsninger [1].
+- Elektrifiseringen var opprinnelig planlagt med kraft fra land (vindkraft og kraftlinjer i Finnmark), men dette møter motstand på grunn av naturinngrep og konflikter med andre næringer [3].
+- Kostnadsanslaget for prosjektet har passert 15 mrd. kroner, men Stortinget fikk ikke behandlet saken tidligere fordi den falt under grensen for stortingsbehandling [3].
+
+**Uenighet og alternative forslag:**
+- Flere partier (FrP, R, MDG, deler av Sp) ønsker å stanse elektrifiseringen og heller vurdere alternativer som gasskraft med CCS, kjernekraft eller stenging av anlegget innen 2030 [2, 3, 5, 6].
+- SV, som først støttet stans, snudde og støttet regjeringens linje (AP/Sp) om elektrifisering, noe som skapte konflikt med MDG og R [5, 6].
+- FrP foreslår kjernekraft som en løsning for å unngå vindkraftutbygging i Finnmark [6].
+- MDG og R argumenterer for at elektrifisering forlenger gassproduksjonen og dermed øker totale utslipp, og at Melkøya bør stenges innen 2030 [5].
+
+**Gaps/usikkerhet:**
+- Det er **ikke avgjort** hvilken kraftløsning som skal brukes (kraft fra land, gasskraft med CCS, kjernekraft etc.) [1, 2, 3].
+- Regjeringen må komme tilbake med konkrete alternativer, men tidsfristen er uklar (senest revidert nasjonalbudsjett 2026 er nevnt) [3].
+- Juridiske spørsmål om å endre konsesjoner for elektrifisering er uavklart [5].
+- Det er uenighet om gasskraftverkets levetid (AP hevder det må skiftes ut i 2030, motstandere avviser dette) [6].
+
+**Konklusjon:**
+Elektrifiseringen av Melkøya er **ikke endelig besluttet**, men Stortinget har bedt regjeringen sikre framdrift for kraftløsninger innen 2030. Det er stor uenighet om metode (kraft fra land vs. gasskraft/CCS/kjernekraft) og om anlegget i det hele tatt skal fortsette etter 2030. Regjeringen må legge fram nye forslag, men ingen løsning er vedtatt ennå.
+========================================================================
+
+Sources (what was actually retrieved and read):
+  [1] Representantforslag om elektrifisering av Melkøya med gasskraft med CCS
+      https://www.stortinget.no/no/Saker-og-publikasjoner/Saker/Sak/?p=101683
+      found by: q1#r1
+  [2] Innstilling fra energi- og miljøkomiteen om fire representantforslag om stans av elektrifisering av Hammerfest LNG (Melkøya) og alternative energiløsninger
+      https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Innstillinger/Stortinget/2024-2025/inns-202425-221s/?all=true
+      found by: q2#r1
+  [3] Representantforslag om å stanse den videre elektrifiseringen av Melkøya-anlegget
+      https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2025-2026/dok8-202526-006s/
+      found by: q1#r2
+  [4] Melkøya skal elektrifiseres: – En historisk dag for Hammerfest, Finnmark og Norge | Tu.no
+      https://www.tu.no/artikler/melkoya-skal-elektrifiseres-en-historisk-dag-for-hammerfest-finnmark-og-norge/533313
+      found by: q2#r2
+  [5] Melkøya bør ikke få strømmen i Finnmark - MDG
+      https://mdg.no/politikk/aktuelt/nyhet/melkoya-feb26
+      found by: q1#r3
+  [6] Melkøya-saken, Elektrifisering av Melkøya | Melkøya-saken, en studie i desinformasjon
+      https://www.nordnorskdebatt.no/melkoya-saken-en-studie-i-desinformasjon/o/5-124-411351
+      found by: q2#r3
+
+Cross-check vs gpt-5.6-luna (35.1s) — disagreement is a dig-here marker, not a verdict:
+### **Sammenligning av svarene om elektrifiseringen av Melkøya**
+
+#### **1. AGREE (felles påstander)**
+- Elektrifiseringen er **ikke endelig besluttet**, men planlagt med mål om drift innen **2030**.
+- **Snøhvit Future** (Equinor) er hovedprosjektet for elektrifisering.
+- **Kraft fra land** (vindkraft/strømnett) er en sentral løsning, men møter motstand.
+- **Store kostnader** (over 15 mrd. NOK) og **politisk uenighet** om metode og naturinngrep.
+- **Nettutbygging (Skaidi–Hammerfest)** er en kritisk flaskehals.
+- **Utslippskutt** på ~850 000 tonn CO₂/år er målet.
+
+---
+
+#### **2. DISAGREE (konflikter)**
+| **A (retrieval)** | **B (reader)** |
+|-------------------|----------------|
+| *"Stortinget har **ikke stanset** elektrifiseringen, men bedt regjeringen sikre framdrift for kraftløsninger innen 2030."* | *(Implisitt) Prosjektet er **godkjent** (2023) og **fortsatt planlagt** mot 2030.* |
+| *"Det er **ikke avgjort** hvilken kraftløsning som skal brukes (kraft fra land, gasskraft med CCS, kjernekraft etc.)."* | *"Anlegget skal få strøm **fra nettet** i stedet for gassturbiner."* (Utelukker eksplisitt andre alternativer.) |
+| *"Flere partier (FrP, R, MDG) ønsker å **stanse elektrifiseringen** og vurdere alternativer som gasskraft/CCS eller kjernekraft."* | *(Ingen omtale av politisk motstand mot selve elektrifiseringen, bare nettutbygging og kraftbruk.)* |
+| *"MDG og R argumenterer for at elektrifisering **forlenger gassproduksjonen** og øker totale utslipp."* | *"Tilhengerne peker på **store nasjonale utslippskutt** og sikret drift av Snøhvit."* (Ignorerer debatten om livsforlengelse.) |
+
+---
+
+#### **3. B-ONLY (tillegg fra B, mangler i A)**
+- **Konkret utslippskutt**: 850 000 tonn CO₂/år (≈ 1 million biler).
+- **Godkjenning i 2023**: Myndighetene har allerede godkjent prosjektet (A nevner bare Stortingets vedtak om "framdrift").
+- **Teknisk detalj**: Elektrifiseringen krever **nye kompressorer** (del av Snøhvit Future).
+- **Kraftsystemets rolle**: Kritikk om at elektrifisering **flytter utslipp** fra Melkøya til kraftnettet (A nevner bare naturinngrep og kostnader).
+
+*(Mulig årsak: B’s kunnskap er basert på pre-2023 data, mens A henter nyere politiske strømninger.)*
+
+---
+
+#### **4. DIG (hva å søke videre for å avklare)**
+1. **Nåværende politisk status**:
+   - Har Stortinget **endret** sin posisjon siden 2023? (A nevner nyere debatt om gasskraft/CCS vs. elektrifisering.)
+   - Er **Snøhvit Future** fortsatt godkjent, eller er det åpnet for alternative løsninger?
+
+2. **Kraftløsning**:
+   - Har regjeringen **konkretisert** hvilken løsning (kraft fra land, gasskraft med CCS, kjernekraft) som prioriteres? (A sier "ikke avgjort"; B antar kraft fra nettet.)
+
+3. **Nettutbygging**:
+   - Hva er **status for Skaidi–Hammerfest-linjen**? Er den fortsatt flaskehalsen? (B nevner dette som kritisk; A fokuserer på politikk.)
+
+4. **Kostnader og tidslinje**:
+   - Er **kostnadsanslaget** oppdatert (A: >15 mrd.; B: ingen oppdatering)?
+   - Er **2030-målet** realistisk, eller er det forsinkelser? (A nevner "uklar tidsfrist"; B holder fast på 2030.)
+
+5. **Juridiske spørsmål**:
+   - Er det **nye konsesjonsutfordringer** for å endre elektrifiseringsplanene? (A nevner dette som uavklart.)
+
+**Søkeord**:
+- *"Melkøya elektrifisering status 2024"*
+- *"Snøhvit Future vedtak 2024"*
+- *"Skaidi Hammerfest kraftlinje framdrift"*
+- *"Regjeringens forslag Melkøya kraftløsning"*
+
+total 70.8s
