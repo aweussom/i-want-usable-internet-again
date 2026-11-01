@@ -141,9 +141,47 @@ def merge(per_query_results):
     return list(seen.values())
 
 
+def is_pdf(r):
+    """Content-Type first, magic bytes second. Repositories (d-nb.info,
+    arXiv, university servers) routinely serve PDFs as octet-stream or with
+    no type at all, so the header alone under-detects; the first bytes of
+    every PDF are '%PDF-' and that never lies."""
+    ctype = r.headers.get("Content-Type", "").lower()
+    return "application/pdf" in ctype or r.content[:5] == b"%PDF-"
+
+
+def extract_pdf(data, max_chars):
+    """PyMuPDF (AGPL, like this repo). Stops reading pages once max_chars is
+    covered: a 300-page thesis costs seconds otherwise, and the caller
+    truncates anyway. No fallback parser -- a home-rolled one would be
+    exactly the kind of extractor that quietly drops the tables and keeps
+    the running heads. Missing library = unreadable, and the caller's
+    'nothing to read' filter drops the source honestly."""
+    try:
+        import pymupdf
+    except ImportError:
+        print("  pdf skipped: pip install pymupdf to read it", file=sys.stderr)
+        return ""
+    parts, n = [], 0
+    with pymupdf.open(stream=data, filetype="pdf") as doc:
+        for page in doc:
+            t = page.get_text("text")
+            parts.append(t)
+            n += len(t)
+            if n >= max_chars:
+                break
+    return re.sub(r"[ \t]+", " ", "\n".join(parts))
+
+
 def fetch_extract(url, max_chars):
     r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=15)
     r.raise_for_status()
+    # The primary literature arrives as PDF far more often than as HTML:
+    # first measured 2026-09-06 on a hexanitrogen question, where the one
+    # source that corrected the headline (a PEP comment) was 403 at Wiley
+    # and an open PDF at d-nb.info, and trafilatura does not read PDFs.
+    if is_pdf(r):
+        return extract_pdf(r.content, max_chars).strip()[:max_chars]
     html = r.text
     try:
         import trafilatura

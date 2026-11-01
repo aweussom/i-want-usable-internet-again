@@ -2,3 +2,6 @@ requests
 # Optional but much better page extraction; sporhund falls back to a crude
 # tag-stripper without it.
 trafilatura
+# PDF text extraction (PyMuPDF, AGPL like this repo). The primary literature
+# usually arrives as PDF; without this those sources are skipped as unreadable.
+pymupdf
